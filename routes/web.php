@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => ['web']], function(){
+    //主頁面
+    Route::match(["post","get"],"/","MenuController@index");
 });
+
